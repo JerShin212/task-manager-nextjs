@@ -82,7 +82,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
         return (
             <button
                 onClick={() => onToggle(true)}
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl px-6 py-4 font-medium hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4 font-medium text-white transition-all shadow-lg hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl dark:from-indigo-500 dark:to-purple-500"
             >
                 <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
                 Add New Task
@@ -91,7 +91,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
     }
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+        <form onSubmit={handleSubmit} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-slate-900">
             <input
                 type="text"
                 value={title}
@@ -99,7 +99,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
                 placeholder="Task title..."
                 required
                 autoFocus
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="mb-3 w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
             />
 
             <textarea
@@ -107,19 +107,19 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description (optional)"
                 rows={2}
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                className="mb-3 w-full resize-none rounded-xl border border-gray-200 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
             />
 
             <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                    <label className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-slate-300">
                         <Tag className="w-4 h-4" />
                         Category
                     </label>
                     <select
                         value={categoryId}
                         onChange={(e) => setCategoryId(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                     >
                         <option value="">No category</option>
                         {categories.map((cat) => (
@@ -131,7 +131,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                    <label className="mb-2 flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-slate-300">
                         <CalendarIcon className="w-4 h-4" />
                         Due Date
                     </label>
@@ -139,7 +139,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
                         type="date"
                         value={dueDate}
                         onChange={(e) => setDueDate(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                     />
                 </div>
             </div>
@@ -147,7 +147,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
             <div className="flex gap-3">
                 <button
                     type="submit"
-                    className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl px-6 py-3 font-medium hover:from-indigo-700 hover:to-purple-700 transition-all"
+                    className="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 font-medium text-white transition-all hover:from-indigo-700 hover:to-purple-700 dark:from-indigo-500 dark:to-purple-500"
                 >
                     Add Task
                 </button>
@@ -160,7 +160,7 @@ export default function TaskForm({ onTaskAdded, isOpen, onToggle }: TaskFormProp
                         setCategoryId('');
                         setDueDate('');
                     }}
-                    className="px-6 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+                    className="rounded-xl border border-gray-200 px-6 py-3 transition-colors hover:bg-gray-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                     Cancel
                 </button>

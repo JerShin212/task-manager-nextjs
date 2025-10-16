@@ -75,14 +75,14 @@ export default function CategoryManager() {
     return (
         <div className="mb-8">
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <h2 className="flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-slate-100">
                     <Tag className="w-5 h-5" />
                     Categories
                 </h2>
                 {!isAdding && (
                     <button
                         onClick={() => setIsAdding(true)}
-                        className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+                        className="text-sm font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
                     >
                         + Add Category
                     </button>
@@ -90,7 +90,7 @@ export default function CategoryManager() {
             </div>
 
             {isAdding && (
-                <form onSubmit={handleAdd} className="bg-white rounded-xl p-4 border border-gray-200 mb-3">
+                <form onSubmit={handleAdd} className="mb-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
                     <input
                         type="text"
                         value={newName}
@@ -98,7 +98,7 @@ export default function CategoryManager() {
                         placeholder="Category name"
                         required
                         autoFocus
-                        className="w-full px-3 py-2 border border-gray-200 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="mb-3 w-full rounded-lg border border-gray-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
                     />
 
                     <div className="flex gap-2 mb-3">
@@ -107,7 +107,7 @@ export default function CategoryManager() {
                                 key={color}
                                 type="button"
                                 onClick={() => setNewColor(color)}
-                                className={`w-8 h-8 rounded-full transition-transform ${newColor === color ? 'ring-2 ring-offset-2 ring-indigo-500 scale-110' : ''
+                                className={`h-8 w-8 rounded-full transition-transform ${newColor === color ? 'scale-110 ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-900' : ''
                                     }`}
                                 style={{ backgroundColor: color }}
                             />
@@ -117,7 +117,7 @@ export default function CategoryManager() {
                     <div className="flex gap-2">
                         <button
                             type="submit"
-                            className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+                            className="flex-1 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
                         >
                             Add
                         </button>
@@ -128,7 +128,7 @@ export default function CategoryManager() {
                                 setNewName('');
                                 setNewColor('#6366f1');
                             }}
-                            className="px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                            className="rounded-lg border border-gray-200 px-4 py-2 text-sm transition-colors hover:bg-gray-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
                         >
                             Cancel
                         </button>
@@ -140,7 +140,7 @@ export default function CategoryManager() {
                 {categories.map((cat) => (
                     <div
                         key={cat.id}
-                        className="px-3 py-2 rounded-lg border flex items-center gap-2"
+                        className="flex items-center gap-2 rounded-lg border px-3 py-2"
                         style={{
                             backgroundColor: `${cat.color}10`,
                             borderColor: `${cat.color}30`,
