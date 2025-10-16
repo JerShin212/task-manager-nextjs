@@ -31,3 +31,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 200ms ease, color 200ms ease;
 }
+
+@keyframes fade-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}
+
+.animate-fade-out {
+  animation: fade-slide-out 200ms ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-out {
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+  }
+}
