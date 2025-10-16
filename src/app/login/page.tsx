@@ -32,6 +32,7 @@ export default function LoginPage() {
             }
         } catch (err) {
             setError('An error occurred. Please try again.');
+            console.error(err);
         } finally {
             setLoading(false);
         }
@@ -91,7 +92,7 @@ export default function LoginPage() {
                     </button>
 
                     <p className="mt-6 text-center text-sm text-gray-600">
-                        Don't have an account?{' '}
+                        Don&apos;t have an account?{' '}
                         <Link href="/register" className="text-indigo-600 hover:text-indigo-700 font-medium">
                             Sign up
                         </Link>

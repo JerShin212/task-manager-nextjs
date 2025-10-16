@@ -31,8 +31,8 @@ export async function GET() {
         return NextResponse.json(categories);
     } catch (error) {
         return NextResponse.json(
-            { error: 'Failed to fetch categories' },
-            { status: 500 }
+            { error: error },
+            { status: 500 },
         );
     }
 }
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
         return NextResponse.json(category, { status: 201 });
     } catch (error) {
         return NextResponse.json(
-            { error: 'Failed to create category' },
+            { error: error },
             { status: 500 }
         );
     }
